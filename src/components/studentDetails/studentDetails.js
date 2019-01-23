@@ -4,8 +4,8 @@ import fetchData from '../../actions/actions'
 import { Grid, Student, Label, Loader } from '../styled-components/studentDetails' 
 import { NavLink } from 'react-router-dom'
 
-class StudentDetails extends Component {
 
+class StudentDetails extends Component {
 
   componentDidMount() {
     // console.log(this.props.student)
@@ -13,8 +13,6 @@ class StudentDetails extends Component {
   }
 
   render() {
-    
-    // console.log(this.props.student)
     
     let keys = Object.keys(this.props.student)
     let students = this.props.student
