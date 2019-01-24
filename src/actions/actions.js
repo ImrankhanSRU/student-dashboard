@@ -1,6 +1,5 @@
 
 export default function fetchData() {
-    let studentsData = [];
     return function (dispatch) {
         return fetch("https://api.myjson.com/bins/1dlper")
             .then(response => response.json())
@@ -36,3 +35,4 @@ export function search(value) {
         value: value.charAt(0).toUpperCase() + value.slice(1)
     }
 }
+

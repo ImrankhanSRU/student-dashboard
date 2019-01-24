@@ -15,11 +15,6 @@ export const Button = styled.button `
   border: 1px solid white;
   cursor: pointer;
 
-  :hover {
-    background: rgb(26, 158, 158);
-    color: white;
-  }
-
   background: ${props => props.primary ? "rgb(26, 158, 158)" : "white"};
   color: ${props => props.primary ? "white" : "black"};
   padding: ${props => props.primary ? "1em 11em" : "black"};

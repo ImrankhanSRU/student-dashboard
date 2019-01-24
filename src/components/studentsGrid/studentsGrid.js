@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import fetchData from '../../actions/actions'
-import { Grid, Student, Label, Loader } from '../styled-components/studentDetails' 
+import { Grid, Student, Label, Loader } from '../styled-components/studentsGrid' 
 import { NavLink } from 'react-router-dom'
 
-
-class StudentDetails extends Component {
-
+class StudentsGrid extends Component {
+  data;
   componentDidMount() {
-    // console.log(this.props.student)
     this.props.fetchData();
+
   }
 
   render() {
-    
     let keys = Object.keys(this.props.student)
     let students = this.props.student
+    this.data = this.props.student
     if( this.props.student.length == 0 ) {
       return (
         <Loader />
@@ -67,15 +66,12 @@ class StudentDetails extends Component {
  
 }
 
+
 function mapStateToProps(state) {
-  // console.log(state.studentDetails)
+  // console.log("sa,mmlk")
   return {
     student: state.studentDetails
   };
 }
 
-export default connect(
-mapStateToProps,
-{ fetchData }
-)(StudentDetails);
-
+export default connect(mapStateToProps, { fetchData })(StudentsGrid);

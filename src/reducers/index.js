@@ -1,9 +1,8 @@
+import { stat } from "fs";
+
 const initialState = {
   studentDetails: [],
 };
-// console.log(initialState.studentDetails)
-
-
 
 function rootReducer(state = initialState, action) {
   
@@ -12,7 +11,8 @@ function rootReducer(state = initialState, action) {
   
   if(state.studentDetails.length) {
     for(let student of state.studentDetails) {
-      dataObj[student.rollNo] = student
+      if(student)
+        dataObj[student.rollNo] = student
     }
     state.studentDetails = dataObj
     for (let key in state.studentDetails) {
@@ -21,44 +21,42 @@ function rootReducer(state = initialState, action) {
     }
   }
 
-  // console.log(state.studentDetails)
-
   switch (action.type) {
     case "DATA_LOADED":
-      return Object.assign({}, state, {
+      // console.log(action.payload)
+      return (Object.assign({}, state, {
         studentDetails: action.payload,
         student: action.payload
-      });
+      }));
+
+      // return action.payload
 
     case "ASCENDING":
-      // console.log(studentData)
       for (let key in state.studentDetails) {
         if (state.studentDetails.hasOwnProperty(key))         
             studentData[key-110] = state.studentDetails[key]
       }
-
 
       return Object.assign({}, state, {
         studentDetails: studentData.sort(ascendByNames)
       });
 
     case "DESCENDING":
-
       return Object.assign({}, state, {
         studentDetails: studentData.sort(descendByNames)
       });
 
     case "ASCENDING_MARKS":
-    for (let key in state.studentDetails) {
-      if (state.studentDetails.hasOwnProperty(key))         
-          studentData[key-110] = state.studentDetails[key]
-    }
+
+      for (let key in state.studentDetails) {
+        if (state.studentDetails.hasOwnProperty(key))         
+            studentData[key-110] = state.studentDetails[key]
+      }
       return Object.assign({}, state, {
       studentDetails: studentData.sort(ascendByMarks)
     }); 
 
     case "DESCENDING_MARKS":
-      // console.log(state.studentDetails)
       return Object.assign({}, state, {
       studentDetails: studentData.sort(descendByMarks)
     }); 
