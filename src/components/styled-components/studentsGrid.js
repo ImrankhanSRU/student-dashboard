@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Grid = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin : 20px 20px 0px 200px;
+  margin : 20px 20px 0px 100px;
 
   @media(max-width : 1050px) {
     grid-template-columns: repeat(2,1fr)
@@ -26,6 +26,13 @@ export const Student = styled.div`
   cursor: pointer;
   text-decoration: none;
   color : black;
+
+  @media(max-width : 1050px) {
+  }
+
+  @media(max-width : 700px) {
+    // margin-bottom: 100px;
+  }
 `
 
 export const Loader = styled.div`

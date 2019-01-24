@@ -30,7 +30,7 @@ class Header extends Component {
             this.toggle("marks")
           }}> 
           Sort by markss in {this.state.marks}
-        </Button>        
+        </Button>   
         <Input onChange = {this.call.bind(this)}/>
         <Button style = {{borderRadius: 0}}>
           <MaterialIcon icon="search" />

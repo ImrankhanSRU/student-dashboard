@@ -6,6 +6,10 @@ export const Head = styled.header `
   background: rgb(26, 158, 158);
   display: flex;
   justify-content: flex-end;
+
+  @media(max-width : 700px) {
+   flex-direction: column;
+  }
 `
 
 export const Button = styled.button `
@@ -31,4 +35,8 @@ export const Input = styled.input `
   font-size: 15px;
   background: ${props => props.primary ? "hsla(0,0%,85%,.28)" : "white"};
   border: ${props => props.primary ? "1px solid white" : "white"};
+
+  @media(max-width : 700px) {
+    width:190px;
+   }
 `

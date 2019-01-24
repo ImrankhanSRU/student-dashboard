@@ -99,3 +99,23 @@
   margin-left:  30px;
   border-radius:  .5rem;
 }
+
+strong {
+  font-size: 30px;
+}
+
+@media(max-width : 1050px) {
+  
+}
+
+@media(max-width : 700px) {
+  .chart-container {
+    flex-direction: column;
+    height: 500px;
+  }
+
+  #chart {
+    width: 300px;
+    /* overflow: hidden; */
+  }
+}

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import fetchData from '../../actions/actions'
-import { Grid, Student, Label, Loader } from '../styled-components/studentsGrid' 
-import { NavLink } from 'react-router-dom'
+import { Student, Label, Loader } from '../styled-components/studentsGrid' 
 import Highcharts from 'highcharts/highstock'
-import StudentGrid from '../../components/studentsGrid/studentsGrid'
 
 class Details extends Component {
     count = 0;
@@ -22,6 +20,7 @@ class Details extends Component {
   data;
   async componentDidMount() {
     await this.props.fetchData()
+    if(this.count)
     this.chart()
     }
 
@@ -30,7 +29,8 @@ class Details extends Component {
     if(studentId < 110 || studentId > 134 || isNaN(studentId)) {
         return (
             <div className = "page-not-found">
-                <div><strong>404.</strong> That’s an error.</div>
+                <div><strong>404. Page not found</strong></div>
+                <div>That’s an error.</div>
                 <div>The requested URL was not found on this server. </div>
                 <div>That’s all we know.</div>
             </div>
@@ -43,6 +43,7 @@ class Details extends Component {
       )
     }   
 
+    this.count = 1;
     if(this.props.students.length){
         for(let i of this.props.students) {
             if(i != undefined) {
