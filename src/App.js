@@ -11,8 +11,12 @@ import {withRouter} from 'react-router'
 class App extends Component {
   
   render() {
+    // document.cookie = 'username' +'='+ '' +'; Path=/;';
 
-    if(!document.cookie.length) {
+    console.log(document.cookie.split('=')[1].length)
+
+
+    if(!document.cookie.split('=')[1].length) {
       return (
           <div>
               <Route path="/" component={SignIn} />
@@ -20,6 +24,8 @@ class App extends Component {
 
       );
     }
+
+
     return (
           <div>
             <div className="App">

@@ -49,8 +49,6 @@ export default class SignIn extends Component{
     }
 
     submit() {
-        console.log(this.state.userName.length)
-        console.log("aksnkd")
         let cookies = new Cookies();
         cookies.set('username', this.state.userName, { path: '/' });
     }   

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/actions'
 import MaterialIcon from 'material-icons-react';
 import { Head, Button, Input } from '../styled-components/header'
+import { NavLink } from 'react-router-dom'
+import Cookies from 'universal-cookie';
 
 class Header extends Component {
   constructor(props){
@@ -35,6 +37,12 @@ class Header extends Component {
         <Button style = {{borderRadius: 0}}>
           <MaterialIcon icon="search" />
         </Button>
+        <NavLink
+                    onClick={this.signout.bind(this)}
+                    className = "signout"
+                    to={`/`}
+                > Signout
+        </NavLink>
       </Head>
     )
 
@@ -57,6 +65,11 @@ class Header extends Component {
       name: name,
       marks: marks
     })
+  }
+
+  signout() {
+    let cookies = new Cookies();
+    cookies.set('username', '', { path: '/' });  
   }
 
 }
