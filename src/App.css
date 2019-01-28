@@ -34,15 +34,15 @@
 .student {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+  width: 100px;
 }
 
 .chart-container {
-  padding: 10em 20em;
+  padding: 10em 15em;
   display: flex;
   align-items: center;
-  height: 200px;
   justify-content: space-between;
-  width: 1000px;
 }
 
 #chart {
@@ -95,7 +95,7 @@
   cursor: pointer;
   background:  rgb(26, 158, 158);
   color:  white;
-  padding:  1em 9em ;
+  padding:  1em 12em ;
   margin-left:  30px;
   border-radius:  .5rem;
 }
@@ -111,23 +111,147 @@
   background:  white;
   text-decoration: none;
   color: black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 strong {
   font-size: 30px;
 }
 
+.details {
+  padding: 0 15px;
+  background: #529ba5;
+  color: white;
+}
+
+.details div {
+  margin: 10px 0px;
+  display: flex;
+}
+
+.label {
+  width:120px;
+}
+
+.row-val {
+  border-bottom: 1px solid gainsboro;
+}
+
+.search {
+  background: white;
+  margin-right: 30px;
+  /* height: 50px; */
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  margin-bottom: 10px; 
+  border-radius: 10px;
+}
+
+.student-grid {
+  margin: 100px 150px 0px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-icon strong{
+  margin:0;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.sort-icon {
+  width:50px;
+  height: 40px;
+  margin-top: -10px;
+}
+
+.sort-icon-mark {
+  height: 20px;
+  margin:0;
+  width:40px;
+}
+
+.button-text {
+  margin: 0;
+}
+
+.button-container {
+  display:flex;
+  background: white;
+  margin-right: 20px;
+  height: 15px;
+  padding: 1em;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.order {
+  display: flex;
+}
+
+li {
+  width: 500px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: gray;
+}
+
+.search-length {
+  margin: 20px 0px 50px 750px;
+  font-size: 22px;
+}
+
 @media(max-width : 1050px) {
-  
+  .signin-form {
+    margin: 200px 250px;
+  }
+
+ .chart-container {
+   padding:10em 8em;
+ }
 }
 
 @media(max-width : 700px) {
   .chart-container {
+    display: block;
     flex-direction: column;
     height: 500px;
+    width:0;
+    padding: 20px 35px;
   }
 
   #chart {
     width: 300px;
-    /* overflow: hidden; */
+  }
+
+  .search {
+    width: 230px;
+  }
+
+  .signout {
+    margin-right: 0;
+    width: 100px;
+    margin-left:45px;
+    padding: 10px 0px 10px 40px;
+
+  }
+
+  .signin-form {
+    padding: 3em;
+    margin: 170px 30px;
+  }
+
+  .signin {
+    padding: 5px 100px;
+  }
+
+  .button-container {
+    padding: 10px;
+    width: 220px;
   }
 }

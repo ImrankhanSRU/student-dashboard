@@ -3,14 +3,21 @@ import styled from 'styled-components'
 export const Grid = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin : 20px 20px 0px 100px;
-
+  padding : 20px 20px 0px 120px;
+  width: 100%;
+  // margin-top: 100px;
   @media(max-width : 1050px) {
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    margin:0;
+    padding-left: 180px;
+
   }
 
   @media(max-width : 700px) {
-    grid-template-columns: repeat(1,1fr)
+    grid-template-columns: repeat(1,1fr);
+    margin:0;
+    margin-top: 100px;
+    padding: 10%;
   }
 
 `
@@ -20,31 +27,33 @@ export const Student = styled.div`
   flex-direction: column;
   text-align: left;
   width : 200px;
-  border  :5px solid gainsboro;
-  margin-bottom : 20px;
-  padding-left : 10px;
+  margin-bottom : 50px;
+  padding: 10px 30px;
   cursor: pointer;
   text-decoration: none;
   color : black;
-
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   @media(max-width : 1050px) {
   }
 
   @media(max-width : 700px) {
     // margin-bottom: 100px;
+    
   }
 `
 
 export const Loader = styled.div`
-  border: 16px solid #f3f3f3;
+  border: 7px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 7px solid #3498db;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
-  margin-left : 45%;
-  margin-top : 15%;
+  margin-left: auto;
+  margin-right: auto;  
+  margin-top : 20em;
 }
 
 @-webkit-keyframes spin {
@@ -56,7 +65,16 @@ export const Loader = styled.div`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media(max-width : 700px) {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+  height: 50px;
+  margin-top: 15em;
+}
 `
 
 export const Label = styled.label `
+  width: 2px !important;
 `

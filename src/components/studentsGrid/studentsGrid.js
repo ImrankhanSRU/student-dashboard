@@ -1,77 +1,69 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import fetchData from '../../actions/actions'
-import { Grid, Student, Label, Loader } from '../styled-components/studentsGrid' 
-import { NavLink } from 'react-router-dom'
+import { Grid, Loader } from '../styled-components/studentsGrid' 
+import Card from '../Card/Card'
+
 
 class StudentsGrid extends Component {
   data;
-  componentDidMount() {
-    this.props.fetchData();
+  searchResultLength = 0;
 
+  async componentDidMount() {
+    if(this.props.students.length == 0)
+      await this.props.fetchData();
   }
 
   render() {
-    let keys = Object.keys(this.props.student)
-    let students = this.props.student
-    this.data = this.props.student
-    if( this.props.student.length == 0 ) {
+
+    let keys = Object.keys(this.props.students)
+    let students = this.props.students
+    this.data = this.props.students
+
+    if( this.props.students.length == 0 && !this.props.searchText.length && !this.props.error) {
       return (
         <Loader />
       )
     }
 
-   
-    return (   
-     <Grid> 
-       {
-        keys.map(key =>{
-          return (
-            <Student key = {key}>
-              <NavLink
-                className = "student"
-                to={`/${students[key].rollNo}`}
-              >
-                <p>
-                  <Label >Roll.No :</Label> 
-                  {students[key].rollNo}
-                </p>
-
-                <p>
-                  <Label >Name :</Label> 
-                  {students[key].name}
-                </p>
-
-                <p>
-                  <Label>Total Marks : </Label>
-                  {this.sum(Object.values(students[key].marks))}
-                </p>
-            </NavLink>
-           </Student>
-          );
-        })
-      }
-     </Grid>
-     )
-
-  
+    return ( 
+      <div className = "student-grid">  
+        {
+          this.props.searchText.length == 0  ? null :
+        <strong className = "search-length" >Search results: {this.props.searchLength}</strong>
+        }
+        <Grid> 
+        { 
+          keys.map(key =>{
+            return (
+              <Card key ={key} student={students[key]}/>
+            );
+          })
+        }
+        </Grid>
+      </div>
+    )
   }
-
-  sum = (arr) => {
-    return arr.reduce(function(a,b){
-      return a + b
-    }, 0);
-  }
-
- 
 }
 
 
 function mapStateToProps(state) {
-  // console.log("sa,mmlk")
-  return {
-    student: state.studentDetails
-  };
+  let studentsLength = 0;
+  // if(state) {
+    if(state.studentDetails.length){
+      for(let i of state.studentDetails) {
+        if(i != undefined)
+          studentsLength++;
+      }
+    } 
+    return {
+      students: state.studentDetails,
+      searchLength: studentsLength,
+      searchText: state.searchText,
+      error:state.error
+    };
+
+  
 }
 
 export default connect(mapStateToProps, { fetchData })(StudentsGrid);

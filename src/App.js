@@ -1,44 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header'
 import StudentsGrid from './components/studentsGrid/studentsGrid'
-import { BrowserRouter, Route  } from 'react-router-dom';
+import { Route  } from 'react-router-dom';
 import Details from './components/Details/Details'
 import SignIn from './components/Sign-in/sign-in'
-import {withRouter} from 'react-router'
 
 class App extends Component {
-  
-  render() {
-    // document.cookie = 'username' +'='+ '' +'; Path=/;';
 
-    console.log(document.cookie.split('=')[1].length)
+render() {
 
-
-    if(!document.cookie.split('=')[1].length) {
-      return (
-          <div>
-              <Route path="/" component={SignIn} />
-          </div>
-
-      );
-    }
-
-
-    return (
-          <div>
-            <div className="App">
-              <Route exact path="/" component={Header} />
-              <Route exact path="/" component={StudentsGrid} />
-            </div>
-
+    let val = 0;
+        if(document.cookie.split('=').length > 1) {
+          if(document.cookie.split('=')[1].length)
+            val = 1;
+        }
+        if(!val) {
+          console.log("sign in")
+          return (
             <div>
-              <Route path="/:Id" component={Details} />
+              <Route path="/" component={SignIn} />
             </div>
-          </div>
-    );
+          );
+        }
+
+        return (
+            <div>
+              <div className="iik">
+                <Route exact path="/" component={Header} />
+                <Route exact path="/" component={StudentsGrid} />
+              </div>
+
+              <div>
+                <Route path="/:Id" component={Details} />
+              </div>
+            </div>
+        );
   }
+
 }
 
 export default App;

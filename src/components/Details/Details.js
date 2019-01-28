@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import fetchData from '../../actions/actions'
-import { Student, Label, Loader } from '../styled-components/studentsGrid' 
+import { Loader } from '../styled-components/studentsGrid' 
 import Highcharts from 'highcharts/highstock'
+import Card from '../Card/Card'
 
 class Details extends Component {
     count = 0;
@@ -19,9 +20,10 @@ class Details extends Component {
   subjects;
   data;
   async componentDidMount() {
-    await this.props.fetchData()
+    if(this.props.students[110] == undefined && !this.props.students.length)
+        await this.props.fetchData()
     if(this.count)
-    this.chart()
+        this.chart()
     }
 
   render() {
@@ -58,24 +60,8 @@ class Details extends Component {
         this.student = this.props.students[studentId]
     return (
             <div className = "chart-container">
-            <Student>
-                <p>
-                  <Label >Roll.No :</Label> 
-                  {this.student.rollNo}
-                </p>
-
-                <p>
-                  <Label >Name :</Label> 
-                  {this.student.name}
-                </p>
-
-                <p>
-                  <Label>Total Marks : </Label>
-                  {this.sum(Object.values(this.student.marks))}
-                </p>
-                
-           </Student>
-           <div id ="chart"></div>
+                <Card student={this.student}/>
+                <div id ="chart"></div>
 
             </div>
 
@@ -95,7 +81,7 @@ class Details extends Component {
                 type: 'column'
             },
             title: {
-                text: 'Marks in individual subjects scored by '
+                text: 'Marks in individual subjects scored by ' + this.student.name
             },
              xAxis: {
                 text : "Subject",
@@ -120,7 +106,7 @@ class Details extends Component {
 function mapStateToProps(state) {
   // console.log("sa,mmlk")
   return {
-    students: state.studentDetails
+    students: state.studentDetails,
   };
 }
 

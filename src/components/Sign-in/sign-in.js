@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Input } from '../styled-components/header'
 import Cookies from 'universal-cookie';
-import StudentGrid from '../../components/studentsGrid/studentsGrid'
 import { NavLink } from 'react-router-dom'
 
 
@@ -21,14 +20,14 @@ export default class SignIn extends Component{
             <div className = "signin-form">
                 <div className = "row">
                 <Input onChange = {this.handleInput.bind(this)} name = "userName" placeholder = "User name" primary/>
-                <div className = "required" hidden={this.state.userName}>userName required</div>
-                </div>
+                {/* <div className = "required" hidden={this.state.userName}>userName required</div> */}
+                </div> 
 
                 <div className = "row">
 
-                <Input type = "password" onChange = {this.handleInput.bind(this)} name = "password" placeholder = "Password" primary/>
-                <div className = "required" hidden={this.state.password}>password required</div>
-                </div>
+                <Input username type = "password" onChange = {this.handleInput.bind(this)} name = "password" placeholder = "Password" primary/>
+                {/* <div className = "required" hidden={this.state.password}>password required</div>  */}
+                </div> 
         
                 <NavLink
                     style = {{pointerEvents: this.state.userName.length && this.state.password.length ? "auto":"none"}}

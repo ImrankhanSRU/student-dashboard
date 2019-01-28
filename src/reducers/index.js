@@ -1,7 +1,9 @@
-import { stat } from "fs";
 
 const initialState = {
   studentDetails: [],
+  searchText: "",
+  error:0,
+  loading:0
 };
 
 function rootReducer(state = initialState, action) {
@@ -23,10 +25,19 @@ function rootReducer(state = initialState, action) {
 
   switch (action.type) {
     case "DATA_LOADED":
-      // console.log(action.payload)
+    console.log(action.payload)
+    if(action.payload[110]) {
+      state.error = 1;
+    }
+
+    else{
+      state.error = 2;
+    }
       return (Object.assign({}, state, {
         studentDetails: action.payload,
-        student: action.payload
+        student: action.payload,
+        nameURL:undefined,
+        markURL:undefined,
       }));
 
       // return action.payload
@@ -38,12 +49,16 @@ function rootReducer(state = initialState, action) {
       }
 
       return Object.assign({}, state, {
-        studentDetails: studentData.sort(ascendByNames)
+        studentDetails: studentData.sort(ascendByNames),
+        nameURL: "https://cdn1.imggmi.com/uploads/2019/1/24/7697772a5a56a9b14e8ddef7b45f2926-full.png",
+        markURL:undefined
       });
 
     case "DESCENDING":
       return Object.assign({}, state, {
-        studentDetails: studentData.sort(descendByNames)
+        studentDetails: studentData.sort(descendByNames),
+        nameURL: "https://cdn1.imggmi.com/uploads/2019/1/24/abe9b00f0f7f0d4b33953f80a0b017e0-full.png",
+        markURL:undefined
       });
 
     case "ASCENDING_MARKS":
@@ -53,13 +68,26 @@ function rootReducer(state = initialState, action) {
             studentData[key-110] = state.studentDetails[key]
       }
       return Object.assign({}, state, {
-      studentDetails: studentData.sort(ascendByMarks)
-    }); 
+        studentDetails: studentData.sort(ascendByMarks),
+        markURL: "https://cdn1.imggmi.com/uploads/2019/1/24/96ca79b0d14adfd750b667d37630d8e4-full.png",
+        nameURL:undefined
+      }); 
 
     case "DESCENDING_MARKS":
       return Object.assign({}, state, {
-      studentDetails: studentData.sort(descendByMarks)
+        studentDetails: studentData.sort(descendByMarks),
+        markURL: "https://cdn1.imggmi.com/uploads/2019/1/24/ec016e66c634f5db19f9c80638c950a7-full.png",
+        nameURL:undefined
     }); 
+
+    case "FETCH_FAILED":
+      console.log("failed")
+      return Object.assign({}, state, {
+        error:2,
+        loading:0
+
+      });
+
 
     case "SEARCH":
       for (let key in state.student) {
@@ -67,8 +95,11 @@ function rootReducer(state = initialState, action) {
             studentData[key-110] = state.student[key]
       }
       return Object.assign({}, state, {
-        studentDetails: studentData.filter(student => student.name.slice(0, action.value.length) === action.value)
-    }); 
+        studentDetails: studentData.filter(student => student.name.slice(0, action.value.length) === action.value),
+        nameURL:undefined,
+        markURL:undefined,
+        searchText: action.value
+      }); 
 
     default:
       return state;
