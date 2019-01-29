@@ -3,21 +3,22 @@ import styled from 'styled-components'
 export const Grid = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding : 20px 20px 0px 120px;
-  width: 100%;
+  justify-items: center;
+
+  
   // margin-top: 100px;
-  @media(max-width : 1050px) {
+  @media (min-width: 550px) and (max-width : 1120px) {
     grid-template-columns: repeat(2,1fr);
-    margin:0;
-    padding-left: 180px;
+    margin-top: 100px;
 
   }
 
-  @media(max-width : 700px) {
+  @media(max-width : 550px) {
     grid-template-columns: repeat(1,1fr);
     margin:0;
-    margin-top: 100px;
+    margin-top: 100px;  
     padding: 10%;
+    justify-items: center;
   }
 
 `

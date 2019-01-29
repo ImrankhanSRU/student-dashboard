@@ -16,7 +16,6 @@ render() {
             val = 1;
         }
         if(!val) {
-          console.log("sign in")
           return (
             <div>
               <Route path="/" component={SignIn} />
@@ -26,7 +25,7 @@ render() {
 
         return (
             <div>
-              <div className="iik">
+              <div>
                 <Route exact path="/" component={Header} />
                 <Route exact path="/" component={StudentsGrid} />
               </div>

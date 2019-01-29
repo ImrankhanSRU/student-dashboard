@@ -35,7 +35,7 @@
   text-decoration: none;
   color: black;
   cursor: pointer;
-  width: 100px;
+  /* width: 100px; */
 }
 
 .chart-container {
@@ -144,13 +144,15 @@ strong {
   /* height: 50px; */
   display: flex;
   align-items: center;
-  padding-right: 10px;
+  /* padding: 8px; */
   margin-bottom: 10px; 
   border-radius: 10px;
+  width: 270px;
+  padding-right: 10px;
 }
 
 .student-grid {
-  margin: 100px 150px 0px 0px;
+  margin: 100px 0px 0px 0px;
   display: flex;
   flex-direction: column;
 }
@@ -162,7 +164,7 @@ strong {
 }
 
 .sort-icon {
-  width:50px;
+  width:40px;
   height: 40px;
   margin-top: -10px;
 }
@@ -202,21 +204,52 @@ li {
 }
 
 .search-length {
-  margin: 20px 0px 50px 750px;
+  text-align: center;
   font-size: 22px;
+  margin-bottom: 50px;
 }
 
-@media(max-width : 1050px) {
+@media (min-width: 550px) and (max-width : 1120px) {
   .signin-form {
     margin: 200px 250px;
   }
 
  .chart-container {
    padding:10em 8em;
+   display: flex;
+   flex-direction: column;
  }
+
+ .search-length {
+  margin: 50px 20px -50px 60px;
+  font-size: 18px;
+  text-align: center;
+  }
+
+  .button-container {
+    width: 200px;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 50px;
+  }
+
+  .search {
+    width: 270px;
+  }
+
+  .signout {
+    width: 150px;
+    text-align: center;
+    /* margin-left: 50px; */
+  }
 }
 
-@media(max-width : 700px) {
+@media(max-width : 550px) {
+
+  .student-grid {
+    margin: 150px 60px 0px 20px;
+  }
+
   .chart-container {
     display: block;
     flex-direction: column;
@@ -230,15 +263,23 @@ li {
   }
 
   .search {
-    width: 230px;
+    width: 240px;
+    padding: 8px;
+    margin-left: 10px
   }
 
   .signout {
-    margin-right: 0;
     width: 100px;
-    margin-left:45px;
-    padding: 10px 0px 10px 40px;
+    text-align: center;
+  }
 
+  strong {
+    font-size: 20px;
+  }
+
+  li {
+    width: 270px;
+    font-size: 15px;
   }
 
   .signin-form {
@@ -251,7 +292,27 @@ li {
   }
 
   .button-container {
-    padding: 10px;
+    /* padding: 10px; */
     width: 220px;
+  }
+
+  .search-length {
+    margin: 150px 20px -100px 60px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .page-not-found {
+    margin: 7% 0px 0 20px;
+
+  }
+
+  .page-not-found div {
+    text-align: left;
+    width: 200px;
+    font-size: 20px;
+    margin:0;
+    margin-bottom: 20px;
+
   }
 }

@@ -1,11 +1,12 @@
+import axios from 'axios'
+
 export default function fetchData() {
     return function (dispatch) {
-        return fetch("https://api.myjson.com/bins/1dlper")
-            .then(response => response.json())
+        return axios.get("https://api.myjson.com/bins/1dlper")
             .then(json => {
                 dispatch({
                     type: "DATA_LOADED",
-                    payload: json
+                    payload: json.data
                 });
             }).catch(err => {
                 dispatch({

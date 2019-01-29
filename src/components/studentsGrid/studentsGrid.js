@@ -10,7 +10,7 @@ class StudentsGrid extends Component {
   searchResultLength = 0;
 
   async componentDidMount() {
-    if(this.props.students.length == 0)
+    if(this.props.students.length === 0)
       await this.props.fetchData();
   }
 
@@ -20,7 +20,7 @@ class StudentsGrid extends Component {
     let students = this.props.students
     this.data = this.props.students
 
-    if( this.props.students.length == 0 && !this.props.searchText.length && !this.props.error) {
+    if( this.props.students.length === 0 && !this.props.searchText.length && !this.props.error) {
       return (
         <Loader />
       )
@@ -29,8 +29,8 @@ class StudentsGrid extends Component {
     return ( 
       <div className = "student-grid">  
         {
-          this.props.searchText.length == 0  ? null :
-        <strong className = "search-length" >Search results: {this.props.searchLength}</strong>
+          this.props.searchText.length === 0  ? null :
+        <strong className = "search-length" >Search results : {this.props.searchLength}</strong>
         }
         <Grid> 
         { 
@@ -52,7 +52,7 @@ function mapStateToProps(state) {
   // if(state) {
     if(state.studentDetails.length){
       for(let i of state.studentDetails) {
-        if(i != undefined)
+        if(i !== undefined)
           studentsLength++;
       }
     } 

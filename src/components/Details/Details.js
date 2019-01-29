@@ -20,15 +20,30 @@ class Details extends Component {
   subjects;
   data;
   async componentDidMount() {
-    if(this.props.students[110] == undefined && !this.props.students.length)
+    if(this.props.students[110] === undefined && !this.props.students.length)
         await this.props.fetchData()
     if(this.count)
         this.chart()
     }
 
   render() {
+
     const studentId = this.props.match.params.Id
-    if(studentId < 110 || studentId > 134 || isNaN(studentId)) {
+
+    if(this.props.error === 2) {
+        return (
+          <div className = "page-not-found">
+            <div><strong>Failed to fetch data from API</strong></div>
+            <div>Try :</div>
+            <ul>
+              <li>Checking the network cables, modem and router</li>
+              <li>Checking the API url</li>
+            </ul>
+          </div>          
+      );
+    }
+
+    else if((studentId < 110 || studentId > 134 || isNaN(studentId)) && this.props.error === 1) {
         return (
             <div className = "page-not-found">
                 <div><strong>404. Page not found</strong></div>
@@ -39,7 +54,7 @@ class Details extends Component {
         )
     }
 
-    if( this.props.students.length == 0 ) {
+    if( this.props.students.length === 0 ) {
       return (
         <Loader />
       )
@@ -48,15 +63,15 @@ class Details extends Component {
     this.count = 1;
     if(this.props.students.length){
         for(let i of this.props.students) {
-            if(i != undefined) {
-                if(i.rollNo == studentId) {
+            if(i !== undefined) {
+                if(i.rollNo.toString() === studentId) {
                     this.student = i;
                 }
             }
         }
     }
 
-    else
+    else 
         this.student = this.props.students[studentId]
     return (
             <div className = "chart-container">
@@ -107,6 +122,7 @@ function mapStateToProps(state) {
   // console.log("sa,mmlk")
   return {
     students: state.studentDetails,
+    error:state.error,
   };
 }
 
