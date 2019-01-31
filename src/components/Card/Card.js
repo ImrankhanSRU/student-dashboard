@@ -1,7 +1,7 @@
 import React from 'react'
 import { Student } from '../styled-components/studentsGrid' 
 import { NavLink } from 'react-router-dom'
-import { Details, DetailsRow, Label, Text } from '../styled-components/card'
+import { Details, DetailsRow, Label, Text } from '../styled-components/studentDetails'
 
 export default function Card(props) {
     if(!props.student.name)
@@ -15,8 +15,9 @@ export default function Card(props) {
             >
               <Student >
                 
-              <img className ="student-img" src="https://cdn1.imggmi.com/uploads/2019/1/24/ab8f3a70d5624b382d85c34bfeabbfae-full.jpg" alt="Avatar" 
-              />
+              <img className ="student-img" 
+              src="https://cdn1.imggmi.com/uploads/2019/1/24/ab8f3a70d5624b382d85c34bfeabbfae-full.jpg" 
+              alt="Avatar" />
  
                 <Details>
                     <DetailsRow >

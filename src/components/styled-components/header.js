@@ -10,10 +10,6 @@ export const Head = styled.header `
   top: 0;
   width: 95%;
 
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  transition: all .5s;
-
   @media (max-width : 550px) {
     flex-direction: column;
     align-items: center;
@@ -27,11 +23,11 @@ export const Head = styled.header `
     animation-duration: 2s;
     animation-name: slide;
     height: 100%;
-    width : 300px;
+    width : 75%;
     z-index: 2;
 
     @keyframes slide {
-      0%   {left:-100px; top:0px;}
+      0%   {left:-300px; top:0px;}
       25%  {left:0px; top:0px;}
      }
 
@@ -79,7 +75,6 @@ export const Input = styled.input `
   border: ${props => props.primary ? "1px solid white" : "none"};
   width: ${props => props.primary  ? "400px" : "300px"};
   border-radius:  ${props => props.primary ? "10px" : "0px"};
-  -webkit-appearance: textfield;
 
 
   @media(max-width : 550px) {
@@ -90,18 +85,7 @@ export const Input = styled.input `
 
     width: ${props => props.primary ? "220px" : "160px"};
     padding: ${props => props.primary ? "12px 20px" : "10px"};
-    width: ${ props => props.search ? "20px": null};
-    padding: ${ props => props.search ? "7px;" : null};
-    border-radius: ${ props => props.search ? "10em" : null};
-    margin-left: ${ props => props.search ? "-70px" : null};
 
-    background: ${ props => props.search ? "white url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;" : null};
-
-    :focus {
-      width: ${ props => props.search ? "200px": null};
-      padding-left: ${ props => props.search ? "35px": null};
-
-    }
    }
 
    @media (min-width: 550px) and (max-width : 1120px) {
@@ -125,7 +109,7 @@ export const Search = styled.div `
     width: 0px;
     /* padding: 8px; */
     margin: 0;
-    margin-left: 10px
+    // margin-left: 10px
     padding: 0;
 
    }
@@ -136,3 +120,28 @@ export const Search = styled.div `
   }
 `
 
+export const SearchInput = styled.input `
+  display:block;
+  margin: 0 0 0 auto;
+  width: 20px;
+  /* box-sizing: border-box; */
+  border-radius: 50px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background: white url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  background-position: 8px;
+
+  background-repeat: no-repeat;
+  padding: 7px;
+  -webkit-transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
+  margin-right: 20px;
+
+
+  :focus {
+    width: 200px;
+    padding: 5px 10px 5px 15px;
+    background-position: 200px 5px;
+  }
+`

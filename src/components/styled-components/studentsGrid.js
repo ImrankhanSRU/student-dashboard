@@ -23,7 +23,7 @@ export const Grid = styled.div `
 
 `
 
-export const Student = styled.div`
+export const Student = styled.div `
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -46,7 +46,7 @@ export const Student = styled.div`
   }
 `
 
-export const Loader = styled.div`
+export const Loader = styled.div `
   border: 7px solid #f3f3f3;
   border-radius: 50%;
   border-top: 7px solid #3498db;
@@ -83,7 +83,7 @@ export const Label = styled.label `
 `
 
 export const ChartContainer = styled.div `
-  padding: 10em 15em;
+  padding: 5em 15em;
   display: flex;
   align-items: center;
   justify-content: space-between;

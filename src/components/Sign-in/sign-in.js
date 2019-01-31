@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Input } from '../styled-components/header'
 import Cookies from 'universal-cookie';
 import { NavLink } from 'react-router-dom'
-
+import { Form } from '../styled-components/studentDetails'
 
 export default class SignIn extends Component{
     constructor(props){
@@ -16,24 +16,29 @@ export default class SignIn extends Component{
 
     render() {
         return (
-            <div className = "signin-form">
+            <Form>
                 <div className = "row">
-                <Input onChange = {this.handleInput.bind(this)} name = "userName" placeholder = "User name" primary/>
+                <Input onChange = {this.handleInput.bind(this)} 
+                    name = "userName" placeholder = "User name" primary/>
                 </div> 
 
                 <div className = "row">
 
-                <Input username type = "password" onChange = {this.handleInput.bind(this)} name = "password" placeholder = "Password" primary/>
+                <Input username type = "password" 
+                    onChange = {this.handleInput.bind(this)} 
+                    name = "password" placeholder = "Password" primary/>
                 </div> 
         
                 <NavLink
-                    style = {{pointerEvents: this.state.userName.length && this.state.password.length ? "auto":"none"}}
+                    style = {{
+                        pointerEvents: this.state.userName.length 
+                        && this.state.password.length ? "auto":"none"}}
                     onClick={this.submit.bind(this)}
                     className = "signin"
                     to={`/`}
                 > Signin</NavLink>
                 
-            </div>
+            </Form>
         );
     }
 

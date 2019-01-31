@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div `
     display: flex;
     background: white;
     margin-right: 20px;
@@ -16,4 +16,3 @@ export const ButtonContainer = styled.div`
         margin-top: 30px;
     }
 `
-

@@ -5,7 +5,7 @@ import { Loader } from '../styled-components/studentsGrid'
 import Highcharts from 'highcharts/highstock'
 import Card from '../Card/Card'
 import { NavLink } from 'react-router-dom'
-import { PageNotFound } from '../styled-components/page-not-found'
+import { PageNotFound } from '../styled-components/studentDetails'
 import { ChartContainer } from '../styled-components/studentsGrid'
  
 class Details extends Component {
@@ -47,7 +47,8 @@ class Details extends Component {
     }
 
 
-    else if(((studentId < 110 || studentId > 134 || isNaN(studentId)) && this.props.error === 1) || studentId.includes('.')) {
+    else if(((studentId < 110 || studentId > 134 || isNaN(studentId)) 
+            && this.props.error === 1) || studentId.includes('.')) {
         return (
             <PageNotFound className = "page-not-found">
                 <div><strong>404. Page not found</strong></div>
@@ -82,7 +83,8 @@ class Details extends Component {
     return (
         <div>
             <NavLink to = {'/'}>
-                <img style = {{width:"70px", height:"70px", marginLeft: "10px"}}src = "https://i.ibb.co/RyWpnwG/Left-Arrow-128.png" alt = "Go-Back" />
+                <img className = "back-icon"
+                src = "https://i.ibb.co/RyWpnwG/Left-Arrow-128.png" alt = "Go-Back" />
             </NavLink>
 
             <ChartContainer>

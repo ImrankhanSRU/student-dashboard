@@ -3,16 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/actions'
 import MaterialIcon from 'material-icons-react';
-import { Head, Button, Input, Search } from '../styled-components/header'
+import { Head, Button, Input, Search, SearchInput } from '../styled-components/header'
 import { NavLink } from 'react-router-dom'
 import Cookies from 'universal-cookie';
 import { ButtonContainer } from '../styled-components/buttons'
+import { PageNotFound } from '../styled-components/studentDetails'
 
+class  Header extends Component {
 
-class Header extends Component {
-
-
- render() { 
+render() { 
 
 
   if(this.props.error === 0) {
@@ -36,7 +35,10 @@ class Header extends Component {
             </Button>
             {
                 this.props.nameURL === undefined ? <div>Names in no order</div> :
-                <div className = "order"><div>Names in </div> <img className = "sort-icon" src={this.props.nameURL} alt ="imrankhan" />order</div>
+                <div className = "order">
+                  <div>Names in </div> 
+                  <img className = "sort-icon" src={this.props.nameURL} alt ="imrankhan" />order
+                </div>
             }
           </ButtonContainer>
 
@@ -47,11 +49,17 @@ class Header extends Component {
             </Button> 
             {
               this.props.markURL === undefined ? <div>Marks in no order</div> :
-                <div className = "order"><div>Marks in </div> <img className = "sort-icon-mark" src={this.props.markURL} alt ="imrankhan" />order</div>
+                <div className = "order">
+                  <div>Marks in </div> 
+                  <img className = "sort-icon-mark" src={this.props.markURL} alt ="imrankhan" />order
+                  </div>
               }
           </ButtonContainer>
           <Search>  
-            <Input onChange = {this.call.bind(this)} value={this.props.searchText}></Input>
+            <Input placeholder = "Search..." 
+              onChange = {this.call.bind(this)} 
+              value={this.props.searchText}>
+            </Input>
             <MaterialIcon icon="search" />
           </Search>
           <NavLink
@@ -66,12 +74,16 @@ class Header extends Component {
             <img src = "https://i.ibb.co/PNQ0qVD/Data-Information-24.png" alt = "menu"/>
           </div>
 
-          <Search>  
-            <Input className = "search"  search ref = "search" onClick = {this.expandSearch.bind(this)} onChange = {this.call.bind(this)} value={this.props.searchText}></Input>
-            {/* <img src = "https://i.ibb.co/MSB0scq/Search-32.png" alt = "search"/> */}
-          </Search>
+          {/* <Search>   */}
+            <SearchInput  
+              search ref = "search" 
+              onClick = {this.expandSearch.bind(this)} 
+              onChange = {this.call.bind(this)} 
+              value={this.props.searchText}>
+            
+            </SearchInput>
+          {/* </Search> */}
 
-          <div ref = "extra"/>
         </div>
 
         
@@ -89,20 +101,26 @@ class Header extends Component {
             </Button>
             {
                 this.props.nameURL === undefined ? <div>Names in no order</div> :
-                <div className = "order"><div>Names in </div> <img className = "sort-icon" src={this.props.nameURL} alt ="imrankhan" />order</div>
+                <div className = "order">
+                  <div>Names in </div> 
+                  <img className = "sort-icon" src={this.props.nameURL} alt ="imrankhan" />order
+                </div>
             }
           </ButtonContainer>
 
           <ButtonContainer onClick = { () => { 
                 this.props.sortByMarks(this.props.marks.toUpperCase())
-                this.display.bind(this)
+                this.display()
 
               }}>
             <Button>            
             </Button> 
             {
               this.props.markURL === undefined ? <div>Marks in no order</div> :
-                <div className = "order"><div>Marks in </div> <img className = "sort-icon-mark" src={this.props.markURL} alt ="imrankhan" />order</div>
+                <div className = "order">
+                  <div>Marks in </div> 
+                  <img className = "sort-icon-mark" src={this.props.markURL} alt ="imrankhan" />order
+                </div>
             }
           </ButtonContainer>
           
@@ -123,14 +141,14 @@ class Header extends Component {
 
   else if(this.props.error === 2) {
       return (
-        <div className = "page-not-found">
-          <div><strong >Failed to fetch data from API</strong></div>
+        <PageNotFound className = "page-not-found">
+          <div><strong style = {{marginLeft: "-30px"}}>Failed to fetch data from API</strong></div>
           <div>Try :</div>
           <ul>
             <li>Checking the network cables, modem and router</li>
             <li>Checking the API url</li>
           </ul>
-        </div>          
+        </PageNotFound>          
     );
   }
 
