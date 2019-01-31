@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import fetchData from '../../actions/actions'
 import { Grid, Loader } from '../styled-components/studentsGrid' 
 import Card from '../Card/Card'
-
+import hideSignout from '../Header/Header'
 
 class StudentsGrid extends Component {
   data;
   searchResultLength = 0;
 
-  async componentDidMount() {
+  componentDidMount() {
     if(this.props.students.length === 0)
-      await this.props.fetchData();
+      this.props.fetchData();
   }
 
   render() {
@@ -30,7 +30,7 @@ class StudentsGrid extends Component {
       <div className = "student-grid">  
         {
           this.props.searchText.length === 0  ? null :
-        <strong className = "search-length" >Search results : {this.props.searchLength}</strong>
+          <strong className = "search-length" >Search results : {this.props.searchLength}</strong>
         }
         <Grid> 
         { 
@@ -49,7 +49,7 @@ class StudentsGrid extends Component {
 
 function mapStateToProps(state) {
   let studentsLength = 0;
-  // if(state) {
+
     if(state.studentDetails.length){
       for(let i of state.studentDetails) {
         if(i !== undefined)
@@ -60,7 +60,8 @@ function mapStateToProps(state) {
       students: state.studentDetails,
       searchLength: studentsLength,
       searchText: state.searchText,
-      error:state.error
+      error:state.error,
+      hide: hideSignout
     };
 
   

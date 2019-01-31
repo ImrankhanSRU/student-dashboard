@@ -15,18 +15,15 @@ export default class SignIn extends Component{
       }
 
     render() {
-        // console.log("signIn")
         return (
             <div className = "signin-form">
                 <div className = "row">
                 <Input onChange = {this.handleInput.bind(this)} name = "userName" placeholder = "User name" primary/>
-                {/* <div className = "required" hidden={this.state.userName}>userName required</div> */}
                 </div> 
 
                 <div className = "row">
 
                 <Input username type = "password" onChange = {this.handleInput.bind(this)} name = "password" placeholder = "Password" primary/>
-                {/* <div className = "required" hidden={this.state.password}>password required</div>  */}
                 </div> 
         
                 <NavLink

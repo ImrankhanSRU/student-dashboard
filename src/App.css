@@ -26,6 +26,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -38,21 +39,15 @@
   /* width: 100px; */
 }
 
-.chart-container {
-  padding: 10em 15em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 #chart {
-  width : 600px;
+  width: 600px;
 }
 
 .signin-form {
   display: flex;
   width: 200px;
-  flex-direction: column ;
+  flex-direction: column;
   align-items: center;
   padding: 10rem;
   margin: 100px 0 0 35%;
@@ -66,17 +61,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-}
-
-.required {
-  color: red;
-}
-
-.page-not-found {
-  margin: 7% auto 0;
-  max-width: 390px;
-  min-height: 180px;
-  padding: 30px 0 15px;
 }
 
 .page-not-found div {
@@ -93,13 +77,12 @@
   outline: none;
   border: 1px solid white;
   cursor: pointer;
-  background:  rgb(26, 158, 158);
-  color:  white;
-  padding:  1em 12em ;
-  margin-left:  30px;
-  border-radius:  .5rem;
+  background: rgb(26, 158, 158);
+  color: white;
+  padding: 1em 12em;
+  margin-left: 30px;
+  border-radius: .5rem;
 }
-
 
 .signout {
   text-decoration: none;
@@ -108,47 +91,20 @@
   outline: none;
   border: 1px solid white;
   cursor: pointer;
-  background:  white;
+  background: white;
   text-decoration: none;
   color: black;
   border-radius: 10px;
   margin-bottom: 10px;
   font-size: 15px;
 }
+
+.signout-res {
+  display: none;
+}
+
 strong {
   font-size: 30px;
-}
-
-.details {
-  padding: 0 15px;
-  background: #529ba5;
-  color: white;
-}
-
-.details div {
-  margin: 10px 0px;
-  display: flex;
-}
-
-.label {
-  width:120px;
-}
-
-.row-val {
-  border-bottom: 1px solid gainsboro;
-}
-
-.search {
-  background: white;
-  margin-right: 30px;
-  /* height: 50px; */
-  display: flex;
-  align-items: center;
-  /* padding: 8px; */
-  margin-bottom: 10px; 
-  border-radius: 10px;
-  width: 270px;
-  padding-right: 10px;
 }
 
 .student-grid {
@@ -157,39 +113,26 @@ strong {
   flex-direction: column;
 }
 
-.sort-icon strong{
-  margin:0;
+.sort-icon strong {
+  margin: 0;
   margin-left: 30px;
   font-size: 20px;
 }
 
 .sort-icon {
-  width:40px;
+  width: 40px;
   height: 40px;
   margin-top: -10px;
 }
 
 .sort-icon-mark {
   height: 20px;
-  margin:0;
-  width:40px;
+  margin: 0;
+  width: 40px;
 }
 
 .button-text {
   margin: 0;
-}
-
-.button-container {
-  display:flex;
-  background: white;
-  margin-right: 20px;
-  height: 15px;
-  padding: 1em;
-  border: 1px solid white;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-  cursor: pointer;
 }
 
 .order {
@@ -209,36 +152,58 @@ li {
   margin-bottom: 50px;
 }
 
+.go-back {
+  font-size: 16px;
+  font-family: Helvetica;
+  background: #29b8eb;
+  border-radius: 100px;
+  padding: 10px 10px;
+  text-align: center;
+  width: 100px;
+  margin: auto;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+
+.topNav {
+  display: none;
+}
+
+.responsive {
+  display: none;
+}
+
+.blur {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.student-img {
+  width: 200px;
+  height: 150px;
+}
+
+
 @media (min-width: 550px) and (max-width : 1120px) {
   .signin-form {
     margin: 200px 250px;
   }
 
- .chart-container {
-   padding:10em 8em;
-   display: flex;
-   flex-direction: column;
- }
-
- .search-length {
-  margin: 50px 20px -50px 60px;
-  font-size: 18px;
-  text-align: center;
-  }
-
-  .button-container {
-    width: 200px;
+  .search-length {
+    margin: 50px 20px -50px 60px;
+    font-size: 18px;
     text-align: center;
-    padding-right: 30px;
-    padding-left: 50px;
   }
 
-  .search {
-    width: 270px;
-  }
 
   .signout {
-    width: 150px;
+    /* width: 150px; */
     text-align: center;
     /* margin-left: 50px; */
   }
@@ -246,31 +211,49 @@ li {
 
 @media(max-width : 550px) {
 
-  .student-grid {
-    margin: 150px 60px 0px 20px;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width:100%;
+    background: #529ba5;
+    padding: 10px;
   }
 
-  .chart-container {
+  .make-blur {
     display: block;
-    flex-direction: column;
-    height: 500px;
-    width:0;
-    padding: 20px 35px;
   }
+
+  .student-grid {
+    /* margin: 150px 60px 0px 20px; */
+    margin: 0;
+  }
+
+  .student-img {
+    width: 100px;
+    height: 80px;
+    margin: auto;
+    margin-bottom: 5px;
+  }
+
 
   #chart {
     width: 300px;
   }
 
-  .search {
-    width: 240px;
-    padding: 8px;
-    margin-left: 10px
+  .signout {
+    /* width: 100px; */
+    text-align: center;
+    margin: 0;
+    margin-right: 20px;
+    margin-top:30px;
+    padding: 10px 15px;
   }
 
-  .signout {
-    width: 100px;
-    text-align: center;
+  .signout-res {
+    display: block;
+    /* padding: 0; */
   }
 
   strong {
@@ -288,16 +271,11 @@ li {
   }
 
   .signin {
-    padding: 5px 100px;
-  }
-
-  .button-container {
-    /* padding: 10px; */
-    width: 220px;
+    padding: 10px 110px;
   }
 
   .search-length {
-    margin: 150px 20px -100px 60px;
+    margin: 60px 20px -30px 20px;
     font-size: 18px;
     text-align: center;
   }
@@ -311,8 +289,20 @@ li {
     text-align: left;
     width: 200px;
     font-size: 20px;
-    margin:0;
+    margin: 0;
     margin-bottom: 20px;
 
+  }
+
+
+  .responsive {
+    display: block;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
   }
 }

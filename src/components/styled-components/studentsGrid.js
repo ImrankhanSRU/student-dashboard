@@ -16,7 +16,7 @@ export const Grid = styled.div `
   @media(max-width : 550px) {
     grid-template-columns: repeat(1,1fr);
     margin:0;
-    margin-top: 100px;  
+    margin-top: 30px;  
     padding: 10%;
     justify-items: center;
   }
@@ -38,8 +38,10 @@ export const Student = styled.div`
   @media(max-width : 1050px) {
   }
 
-  @media(max-width : 700px) {
+  @media(max-width : 550px) {
     // margin-bottom: 100px;
+    width: 170px;
+    padding: 10px;
     
   }
 `
@@ -50,7 +52,7 @@ export const Loader = styled.div`
   border-top: 7px solid #3498db;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite; 
   animation: spin 2s linear infinite;
   margin-left: auto;
   margin-right: auto;  
@@ -78,4 +80,25 @@ export const Loader = styled.div`
 
 export const Label = styled.label `
   width: 2px !important;
+`
+
+export const ChartContainer = styled.div `
+  padding: 10em 15em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 550px) and (max-width : 1120px) {
+    padding: 10em 8em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media(max-width : 550px) {
+    // display: block;
+    padding: 0;
+    padding-top: 2em;
+    flex-direction: column;
+    height: 500px;
+  }
 `

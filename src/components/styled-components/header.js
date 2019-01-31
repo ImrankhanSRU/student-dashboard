@@ -10,12 +10,32 @@ export const Head = styled.header `
   top: 0;
   width: 95%;
 
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+
   @media (max-width : 550px) {
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+
     padding: 0;
     padding-top: 10px;
     padding-left: 20px;
+    display: ${props => props.responsive ? "flex" : "none"};
+    // position: ${props => props.responsive ? "absolute" : "fixed"};
+    animation-duration: 2s;
+    animation-name: slide;
+    height: 100%;
+    width : 300px;
+    z-index: 2;
+
+    @keyframes slide {
+      0%   {left:-100px; top:0px;}
+      25%  {left:0px; top:0px;}
+     }
+
+   
   }
   
   @media (min-width: 550px) and (max-width : 1120px) {
@@ -45,6 +65,9 @@ export const Button = styled.div `
     // width: 220px;
    }
 
+   @media(max-width: 550px) {
+    margin-top: 50px;
+   }
 
 `
 export const Input = styled.input `
@@ -53,11 +76,63 @@ export const Input = styled.input `
   outline: none;
   font-size: 15px;
   background: ${props => props.primary ? "hsla(0,0%,85%,.28)" : "none"};
-  border: ${props => props.primary ? "1px solid white" : "white"};
-  width: ${props => props.primary ? "400px" : "300px"};
+  border: ${props => props.primary ? "1px solid white" : "none"};
+  width: ${props => props.primary  ? "400px" : "300px"};
+  border-radius:  ${props => props.primary ? "10px" : "0px"};
+  -webkit-appearance: textfield;
 
-  @media(max-width : 700px) {
-    padding: .5em;
-    width: 230px;
+
+  @media(max-width : 550px) {
+    -webkit-transition: all .5s;
+	  -moz-transition: all .5s;
+	  transition: all .5s;
+    // padding: .5em;
+
+    width: ${props => props.primary ? "220px" : "160px"};
+    padding: ${props => props.primary ? "12px 20px" : "10px"};
+    width: ${ props => props.search ? "20px": null};
+    padding: ${ props => props.search ? "7px;" : null};
+    border-radius: ${ props => props.search ? "10em" : null};
+    margin-left: ${ props => props.search ? "-70px" : null};
+
+    background: ${ props => props.search ? "white url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;" : null};
+
+    :focus {
+      width: ${ props => props.search ? "200px": null};
+      padding-left: ${ props => props.search ? "35px": null};
+
+    }
    }
+
+   @media (min-width: 550px) and (max-width : 1120px) {
+    width: ${props => props.primary ? "400px" : "180px"};
+  }
 `
+
+export const Search = styled.div `
+  background: white;
+  margin-right: 30px;
+  /* height: 50px; */
+  display: flex;
+  align-items: center;
+  /* padding: 8px; */
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 270px;
+  padding-right: 10px;
+
+  @media(max-width : 550px) {
+    width: 0px;
+    /* padding: 8px; */
+    margin: 0;
+    margin-left: 10px
+    padding: 0;
+
+   }
+
+   @media (min-width: 550px) and (max-width : 1120px) {
+    width: 230px;
+    margin-left: 10px;
+  }
+`
+

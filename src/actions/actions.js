@@ -18,7 +18,7 @@ export default function fetchData() {
 
 export function sortByNames(order) {
     return {
-        type: order,
+        type: order+"_NAMES",
     };
 }
 

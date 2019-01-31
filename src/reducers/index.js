@@ -53,7 +53,7 @@ function rootReducer(state = initialState , action) {
 
       // return action.payload
 
-    case "ASCENDING":
+    case "ASCENDING_NAMES":
 
 
       for (let key in state.studentDetails) {
@@ -70,7 +70,7 @@ function rootReducer(state = initialState , action) {
         marks: "ascending"
       });
 
-    case "DESCENDING":
+    case "DESCENDING_NAMES":
       return Object.assign({}, state, {
         studentDetails: studentData.sort(descendingByNames),
         nameURL: nameURLForDescend,

@@ -4,7 +4,10 @@ import fetchData from '../../actions/actions'
 import { Loader } from '../styled-components/studentsGrid' 
 import Highcharts from 'highcharts/highstock'
 import Card from '../Card/Card'
-
+import { NavLink } from 'react-router-dom'
+import { PageNotFound } from '../styled-components/page-not-found'
+import { ChartContainer } from '../styled-components/studentsGrid'
+ 
 class Details extends Component {
     count = 0;
     student;
@@ -32,25 +35,28 @@ class Details extends Component {
 
     if(this.props.error === 2) {
         return (
-          <div className = "page-not-found">
+          <PageNotFound className = "page-not-found">
             <div><strong>Failed to fetch data from API</strong></div>
             <div>Try :</div>
             <ul>
               <li>Checking the network cables, modem and router</li>
               <li>Checking the API url</li>
             </ul>
-          </div>          
+          </PageNotFound>          
       );
     }
 
-    else if((studentId < 110 || studentId > 134 || isNaN(studentId)) && this.props.error === 1) {
+
+    else if(((studentId < 110 || studentId > 134 || isNaN(studentId)) && this.props.error === 1) || studentId.includes('.')) {
         return (
-            <div className = "page-not-found">
+            <PageNotFound className = "page-not-found">
                 <div><strong>404. Page not found</strong></div>
                 <div>That’s an error.</div>
                 <div>The requested URL was not found on this server. </div>
                 <div>That’s all we know.</div>
-            </div>
+
+                <NavLink className ="go-back" to = {'/'}>Go Back</NavLink>
+            </ PageNotFound>
         )
     }
 
@@ -74,11 +80,16 @@ class Details extends Component {
     else 
         this.student = this.props.students[studentId]
     return (
-            <div className = "chart-container">
+        <div>
+            <NavLink to = {'/'}>
+                <img style = {{width:"70px", height:"70px", marginLeft: "10px"}}src = "https://i.ibb.co/RyWpnwG/Left-Arrow-128.png" alt = "Go-Back" />
+            </NavLink>
+
+            <ChartContainer>
                 <Card student={this.student}/>
                 <div id ="chart"></div>
-
-            </div>
+            </ ChartContainer   >
+        </div>
 
      )
 
@@ -90,7 +101,7 @@ class Details extends Component {
       return a + b
     }, 0);
   }
-  chart() {
+  chart = () => {
         Highcharts.chart('chart', {
             chart: {
                 type: 'column'
@@ -119,7 +130,6 @@ class Details extends Component {
 
 
 function mapStateToProps(state) {
-  // console.log("sa,mmlk")
   return {
     students: state.studentDetails,
     error:state.error,

@@ -1,6 +1,7 @@
+import React from 'react'
 import { Student } from '../styled-components/studentsGrid' 
 import { NavLink } from 'react-router-dom'
-import React from 'react'
+import { Details, DetailsRow, Label, Text } from '../styled-components/card'
 
 export default function Card(props) {
     if(!props.student.name)
@@ -14,33 +15,33 @@ export default function Card(props) {
             >
               <Student >
                 
-              <img src="https://cdn1.imggmi.com/uploads/2019/1/24/ab8f3a70d5624b382d85c34bfeabbfae-full.jpg" alt="Avatar" 
-              style={{width:"200px" ,height:"150px"}}/>
+              <img className ="student-img" src="https://cdn1.imggmi.com/uploads/2019/1/24/ab8f3a70d5624b382d85c34bfeabbfae-full.jpg" alt="Avatar" 
+              />
  
-                <div className = "details">
-                    <div className = "row-val">
-                        <div className = "label">Roll.No </div>
-                        <div>{props.student.rollNo}</div>
-                    </div>
+                <Details>
+                    <DetailsRow >
+                        <Label>Roll.No </ Label>
+                        <Text>{props.student.rollNo}</Text>
+                    </ DetailsRow>
 
-                    <div className = "row-val">
-                        <div className = "label">Name </div>
-                        <div>{props.student.name}</div>
-                    </div>
+                    <DetailsRow>
+                        <Label >Name </ Label>
+                        <Text>{props.student.name}</Text>
+                    </ DetailsRow>
 
-                    <div>
-                        <div className = "label">Total Marks </div>
-                        <div>{sum(Object.values(props.student.marks))}</div>
-                    </div>
-                </div>
+                    <DetailsRow>
+                        <Label className = "label">Marks </Label>
+                        <Text>{sum(Object.values(props.student.marks))}</Text>
+                    </ DetailsRow>
+                </ Details>
                 </Student>
             </NavLink>
 
     )
 }
 
-function sum(arr) {
-    return arr.reduce(function(a,b){
+function sum(markList) {
+    return markList.reduce(function(a,b){
       return a + b
     }, 0);
   }
