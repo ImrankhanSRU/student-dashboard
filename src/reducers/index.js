@@ -8,7 +8,7 @@ const initialState = {
 };
 
 let students;
-function rootReducer(state = initialState , action) {
+const rootReducer = (state = initialState , action) => {
 
   let nameURLForAscend = "https://cdn1.imggmi.com/uploads/2019/1/24/7697772a5a56a9b14e8ddef7b45f2926-full.png"
   let nameURLForDescend = "https://cdn1.imggmi.com/uploads/2019/1/24/abe9b00f0f7f0d4b33953f80a0b017e0-full.png"
@@ -143,7 +143,7 @@ function rootReducer(state = initialState , action) {
 }
 
 
-function ascendingByNames(a, b) {
+ const ascendingByNames = (a, b) =>{
   // console.log(a.name, b.name)
   if (a.name < b.name)
     return -1;
@@ -152,7 +152,7 @@ function ascendingByNames(a, b) {
   return 0;
 }
 
-function descendingByNames(a, b) {
+const descendingByNames = (a, b) => {
   if (a.name < b.name)
       return 1;
   if (a.name > b.name)
@@ -160,7 +160,7 @@ function descendingByNames(a, b) {
   return 0;
 }
 
-function ascendingByMarks(a, b) {
+const ascendingByMarks = (a, b) => {
   // console.log(a.marks)
   if (sum(a.marks) < sum(b.marks))
       return -1;
@@ -169,7 +169,7 @@ function ascendingByMarks(a, b) {
   return 0;
 }
 
-function descendingByMarks(a, b) {
+const descendingByMarks = (a, b) => {
   if (sum(a.marks) < sum(b.marks))
       return 1;
   if (sum(a.marks) > sum(b.marks))
@@ -178,7 +178,7 @@ function descendingByMarks(a, b) {
 }
 
 
-function sum(arr){
+const sum = (arr) =>{
   let marks;
   marks = Object.values(arr)
   // console.log(marks) 

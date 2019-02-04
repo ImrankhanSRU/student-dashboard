@@ -10,7 +10,7 @@ export default function Card(props) {
         )
     return (
             <NavLink
-            className = "student"
+            className = "link"
             to={`/${props.student.rollNo}`}
             >
               <Student >
@@ -41,7 +41,7 @@ export default function Card(props) {
     )
 }
 
-function sum(markList) {
+const sum = (markList) => {
     return markList.reduce(function(a,b){
       return a + b
     }, 0);

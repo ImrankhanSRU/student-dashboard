@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
-
 export const Head = styled.header `
   padding: 1em 3em .5em;
-  background: #529ba5;
+  background: ${props => props.theme.color ? props.theme.color : "#529ba5"};
   display: flex;
   justify-content: flex-end;
   position: fixed;
@@ -19,7 +18,7 @@ export const Head = styled.header `
     padding-top: 10px;
     padding-left: 20px;
     display: ${props => props.responsive ? "flex" : "none"};
-    // position: ${props => props.responsive ? "absolute" : "fixed"};
+    /* position: ${props => props.responsive ? "absolute" : "fixed"}; */
     animation-duration: 2s;
     animation-name: slide;
     height: 100%;
@@ -43,14 +42,14 @@ export const Head = styled.header `
 `
 
 export const Button = styled.div `
-  // padding: 1em;
+  /* padding: 1em; */
   outline: none;
-  // border: 1px solid white;
+   /* border: 1px solid white; */
   cursor: pointer;
   margin-bottom: 10px;
   font-size: 15px;
 
-  background: ${props => props.primary ? "rgb(26, 158, 158)" : "none"};
+  background: ${props => props.theme.color ? props.theme.color : "#529ba5"};
   color: ${props => props.primary ? "white" : "black"};
   padding: ${props => props.primary ? "1em 11em" : "black"};
   margin-left: ${props => props.primary ? "30px" : "0"};
@@ -58,7 +57,7 @@ export const Button = styled.div `
 
   @media(max-width : 767px) {
     margin-right:0;
-    // width: 220px;
+    /* width: 220px; */
    }
 
    @media(max-width: 550px) {
@@ -81,7 +80,7 @@ export const Input = styled.input `
     -webkit-transition: all .5s;
 	  -moz-transition: all .5s;
 	  transition: all .5s;
-    // padding: .5em;
+    /* padding: .5em; */
 
     width: ${props => props.primary ? "220px" : "160px"};
     padding: ${props => props.primary ? "12px 20px" : "10px"};
@@ -109,7 +108,7 @@ export const Search = styled.div `
     width: 0px;
     /* padding: 8px; */
     margin: 0;
-    // margin-left: 10px
+    /* margin-left: 10px */
     padding: 0;
 
    }
@@ -144,4 +143,17 @@ export const SearchInput = styled.input `
     padding: 5px 10px 5px 15px;
     background-position: 200px 5px;
   }
+`
+
+export const NavBar = styled.div `
+
+@media(max-width: 550px){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width:100%;
+    background: ${props => props.theme.color ? props.theme.color : "#529ba5"};
+    padding: 10px;
+}
 `

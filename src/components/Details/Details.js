@@ -7,6 +7,7 @@ import Card from '../Card/Card'
 import { NavLink } from 'react-router-dom'
 import { PageNotFound } from '../styled-components/studentDetails'
 import { ChartContainer } from '../styled-components/studentsGrid'
+import { Theme } from '../../index'
  
 class Details extends Component {
     count = 0;
@@ -22,6 +23,7 @@ class Details extends Component {
   marks;
   subjects;
   data;
+  
   async componentDidMount() {
     if(this.props.students[110] === undefined && !this.props.students.length)
         await this.props.fetchData()
@@ -29,7 +31,7 @@ class Details extends Component {
         this.chart()
     }
 
-  render() {
+  render () {
 
     const studentId = this.props.match.params.Id
 
@@ -56,7 +58,7 @@ class Details extends Component {
                 <div>The requested URL was not found on this server. </div>
                 <div>That’s all we know.</div>
 
-                <NavLink className ="go-back" to = {'/'}>Go Back</NavLink>
+                <NavLink className ="go-back link" to = {'/'}>Go Back</NavLink>
             </ PageNotFound>
         )
     }
@@ -98,11 +100,7 @@ class Details extends Component {
     
   }
 
-  sum = (arr) => {
-    return arr.reduce(function(a,b){
-      return a + b
-    }, 0);
-  }
+  
   chart = () => {
         Highcharts.chart('chart', {
             chart: {
@@ -123,6 +121,7 @@ class Details extends Component {
             },
             series : [{
                 name : "Marks",
+                color: Theme.color,
                 data : Object.values(this.student.marks)
             }] 
         });
@@ -131,7 +130,7 @@ class Details extends Component {
 }
 
 
-function mapStateToProps(state) {
+ const mapStateToProps = (state) => {
   return {
     students: state.studentDetails,
     error:state.error,

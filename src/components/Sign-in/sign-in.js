@@ -3,6 +3,7 @@ import { Input } from '../styled-components/header'
 import Cookies from 'universal-cookie';
 import { NavLink } from 'react-router-dom'
 import { Form } from '../styled-components/studentDetails'
+import { Signin } from '../styled-components/studentDetails'
 
 export default class SignIn extends Component{
     constructor(props){
@@ -34,23 +35,24 @@ export default class SignIn extends Component{
                         pointerEvents: this.state.userName.length 
                         && this.state.password.length ? "auto":"none"}}
                     onClick={this.submit.bind(this)}
-                    className = "signin"
+                    className = "signin link"
                     to={`/`}
-                > Signin</NavLink>
+                >
+                 <Signin> Signin</Signin>
+                </NavLink>
                 
             </Form>
         );
     }
 
-    handleInput(e) {
+    handleInput = (e) => 
         this.setState( {
             [e.target.name]: e.target.value
         })
 
-    }
 
-    submit() {
+    submit = () => {
         let cookies = new Cookies();
-        cookies.set('username', this.state.userName, { path: '/' });
-    }   
+        cookies.set('username', this.state.userName, { path: '/' }); 
+    }
 }

@@ -6,7 +6,7 @@ export const Grid = styled.div `
   justify-items: center;
 
   
-  // margin-top: 100px;
+  /* margin-top: 100px; */
   @media (min-width: 550px) and (max-width : 1120px) {
     grid-template-columns: repeat(2,1fr);
     margin-top: 100px;
@@ -39,7 +39,7 @@ export const Student = styled.div `
   }
 
   @media(max-width : 550px) {
-    // margin-bottom: 100px;
+     /* margin-bottom: 100px; */
     width: 170px;
     padding: 10px;
     
@@ -57,7 +57,7 @@ export const Loader = styled.div `
   margin-left: auto;
   margin-right: auto;  
   margin-top : 20em;
-}
+
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -95,7 +95,7 @@ export const ChartContainer = styled.div `
   }
 
   @media(max-width : 550px) {
-    // display: block;
+     /* display: block; */
     padding: 0;
     padding-top: 2em;
     flex-direction: column;

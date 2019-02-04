@@ -6,13 +6,23 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store/store'
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components'
+
+
+  
+export const Theme = {
+    color: "#8db199"
+}
 
 
 ReactDOM.render(
     <BrowserRouter>
-      <Provider store={store}>
-          <App />
-      </Provider>
+        <ThemeProvider theme = {Theme}>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </ThemeProvider>
+
   </BrowserRouter>,
     document.getElementById('root')
 );

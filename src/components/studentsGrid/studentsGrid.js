@@ -47,7 +47,7 @@ class StudentsGrid extends Component {
 }
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   let studentsLength = 0;
 
     if(state.studentDetails.length){

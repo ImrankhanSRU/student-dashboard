@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/actions'
 import MaterialIcon from 'material-icons-react';
-import { Head, Button, Input, Search, SearchInput } from '../styled-components/header'
+import { Head, Button, Input, Search, SearchInput, NavBar } from '../styled-components/header'
 import { NavLink } from 'react-router-dom'
 import Cookies from 'universal-cookie';
 import { ButtonContainer } from '../styled-components/buttons'
@@ -12,8 +12,6 @@ import { PageNotFound } from '../styled-components/studentDetails'
 class  Header extends Component {
 
 render() { 
-
-
   if(this.props.error === 0) {
     return (
       <div></div>
@@ -27,7 +25,7 @@ render() {
         <div onClick = { () => { 
                 this.display()
               }} className = "blur" ref = "blur"></div>
-        <Head>
+        <Head className = "header">
           <ButtonContainer onClick = { () => { 
                 this.props.sortByNames(this.props.name.toUpperCase())
               }}>
@@ -64,12 +62,12 @@ render() {
           </Search>
           <NavLink
               onClick={this.signout.bind(this)}
-              className = "signout"
+              className = "signout link"
               to={`/`}
           > Signout
           </NavLink>
         </Head>
-        <div className="navbar">
+        <NavBar>
           <div className = "menu-icon" onClick = {this.display.bind(this)}>
             <img src = "https://i.ibb.co/PNQ0qVD/Data-Information-24.png" alt = "menu"/>
           </div>
@@ -84,7 +82,7 @@ render() {
             </SearchInput>
           {/* </Search> */}
 
-        </div>
+        </ NavBar>
 
         
 
@@ -127,7 +125,7 @@ render() {
           <div>
             <NavLink
                 onClick={this.signout.bind(this)}
-                className = "signout signout-res"
+                className = "signout signout-res link"
                 to={`/`}
             > Signout
             </NavLink>
@@ -154,7 +152,7 @@ render() {
 
   } 
 
-  call(e) {
+  call = (e)=> {
     this.props.search(e.target.value)
   }
 
@@ -163,7 +161,7 @@ render() {
     // search.style= "width: 180px; padding-left: 30px;"
   }
 
-  display(){
+  display = () =>{
     let resHeader = this.refs.header;
     let blur = this.refs.blur;
     // let search = this.refs.search;
@@ -179,7 +177,7 @@ render() {
   }
 
 
-  signout() {
+  signout = ()=> {
     let cookies = new Cookies();
     cookies.set('username', '', { path: '/' });  
   }
@@ -188,7 +186,7 @@ render() {
 
 
 
-function stateToProps(state) {
+const stateToProps = (state) => {
   return ({ 
       nameURL: state.nameURL,
       markURL: state.markURL,
@@ -199,7 +197,7 @@ function stateToProps(state) {
   });
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actionCreators,dispatch)
 }
 

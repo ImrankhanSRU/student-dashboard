@@ -11,7 +11,6 @@ export const ButtonContainer = styled.div `
     margin-bottom: 10px;
     text-align: center;
     cursor: pointer;
-    
     @media(max-width: 550px) {
         margin-top: 30px;
     }
