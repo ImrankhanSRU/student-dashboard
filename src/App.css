@@ -40,7 +40,6 @@
   width: 600px;
 }
 
-
 .row {
   margin-bottom: 20px;
 }
@@ -53,17 +52,6 @@
 }
 
 
-.signout {
-  padding: 1em 2em;
-  outline: none;
-  border: 1px solid white;
-  cursor: pointer;
-  background: white;
-  color: black;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
 
 .signout-res {
   display: none;
@@ -131,7 +119,6 @@ li {
   color: white;
 }
 
-
 .topNav {
   display: none;
 }
@@ -160,25 +147,16 @@ li {
   margin: 30px 0px 0px 50px;
 }
 
-
-@media (min-width: 550px) and (max-width : 1120px) {
-  
+@media (min-width: 550px) and (max-width: 1120px) {
   .search-length {
     margin: 50px 20px -50px 60px;
     font-size: 18px;
     text-align: center;
   }
 
-
-  .signout {
-    /* width: 150px; */
-    text-align: center;
-    /* margin-left: 50px; */
-  }
 }
 
-@media(max-width : 550px) {
-  
+@media (max-width: 550px) {
   .make-blur {
     display: block;
   }
@@ -195,18 +173,8 @@ li {
     margin-bottom: 5px;
   }
 
-
   #chart {
     width: 300px;
-  }
-
-  .signout {
-    /* width: 100px; */
-    text-align: center;
-    margin: 0;
-    margin-right: 20px;
-    margin-top:30px;
-    padding: 10px 15px;
   }
 
   .signout-res {
@@ -231,7 +199,6 @@ li {
 
   .page-not-found {
     margin: 7% 0px 0 20px;
-
   }
 
   .page-not-found div {
@@ -240,7 +207,6 @@ li {
     font-size: 20px;
     margin: 0;
     margin-bottom: 20px;
-
   }
 
   .responsive {
@@ -260,4 +226,9 @@ li {
     margin: 0px;
     margin-left: 10px;
   }
+}
+
+::placeholder {
+  color: black;
+  font-size: 17px;
 }

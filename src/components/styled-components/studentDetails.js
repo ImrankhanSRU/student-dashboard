@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Details = styled.div`
-  background:${props => props.theme.color ? props.theme.color : "#529ba5"};
+  background: ${props => (props.theme.color ? props.theme.color : "#529ba5")};
   color: white;
 
   @media (max-width: 550px) {
@@ -20,7 +20,7 @@ export const DetailsRow = styled.div`
 `;
 
 export const Label = styled.div`
-  width: 120px;
+  width: 80px;
   @media (max-width: 550px) {
     /* width: 200px; */
     font-size: 14px;
@@ -70,22 +70,4 @@ export const Blur = styled.div`
   position: fixed;
   background: rgba(0, 0, 0, 0.3);
   z-index: 1;
-`
-
-export const Signin = styled.div `
-  text-decoration: none;
-  padding: .7em;
-  /* margin-right: 2em; */
-  outline: none;
-  border: 1px solid white;
-  cursor: pointer;
-  background: ${props => props.theme.color ? props.theme.color : "#529ba5"};
-  color: white;
-  padding: 1em 12em;
-  /* margin-left: 30px; */
-  border-radius: .5rem;
-
-  @media(max-width: 550px) {
-    padding: 10px 110px;
-  }
-`
+`;
