@@ -102,6 +102,5 @@ export const ChartContainer = styled.div`
     padding: 0;
     padding-top: 2em;
     flex-direction: column;
-    height: 500px;
   }
 `;

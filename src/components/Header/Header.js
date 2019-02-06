@@ -14,7 +14,7 @@ import {
 } from "../styled-components/header";
 import { NavLink } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { ButtonContainer, Signout } from "../styled-components/buttons";
+import { ButtonContainer, Signout, Buttons } from "../styled-components/buttons";
 import { PageNotFound } from "../styled-components/studentDetails";
 
 class Header extends Component {
@@ -115,6 +115,8 @@ class Header extends Component {
               <div className="close-icon" onClick={this.display.bind(this)}>
                 <img src="https://i.ibb.co/XbVMm14/Close-24.png" alt="close" />
               </div>
+
+              <Buttons >
               <ButtonContainer
                 onClick={() => {
                   this.props.sortByNames(this.props.name.toUpperCase());
@@ -169,6 +171,7 @@ class Header extends Component {
                   <Signout>Signout</Signout>
                 </NavLink>
               </div>
+              </Buttons>
             </MobileHeader>
           {/* </div> */}
         </div>
@@ -197,7 +200,7 @@ class Header extends Component {
     // let resHeader = this.refs.header;
     let blur = this.refs.blur;
     if(this.refs.mobileHeader.style.width === "0px") {
-      this.refs.mobileHeader.style = 'width: 300px';
+      this.refs.mobileHeader.style = 'width: 83%';
       blur.className += ' make-blur'
     }
 
@@ -227,7 +230,4 @@ const stateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators(actionCreators, dispatch);
 
 
-export default connect(
-  stateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(stateToProps,mapDispatchToProps)(Header);

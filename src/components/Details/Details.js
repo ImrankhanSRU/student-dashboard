@@ -105,7 +105,7 @@ class Details extends Component {
         type: "column"
       },
       title: {
-        text: "Marks in individual subjects scored by " + this.student.name
+        text: "Marks in each subject scored by " + this.student.name
       },
       xAxis: {
         text: "Subject",

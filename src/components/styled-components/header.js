@@ -32,18 +32,10 @@ export const MobileHeader = styled(Head)`
     padding-top: 10px;
     /* padding-left: 20px; */
     display: ${props => (props.responsive ? "flex" : "none")};
-    /* position: ${props => (props.responsive ? "absolute" : "fixed")}; */
-    /* animation-duration: 2s;
-    animation-name: slide; */
     height: 100%;
     overflow: hidden;
     z-index: 1;
     transition: .3s;
-
-    @keyframes slide {
-      0%   {left:-300px; top:0px;}
-      25%  {left:0px; top:0px;}
-     }
   }
 `;
 
@@ -71,7 +63,7 @@ export const Button = styled.div`
   }
 `;
 export const Input = styled.input`
-  padding: .4em;
+  padding: ${props => (props.primary ? '1em' : '.4em')};
   border: none;
   outline: none;
   font-size: 17px;
@@ -142,7 +134,7 @@ export const SearchInput = styled.input`
   :focus {
     width: 200px;
     padding: 5px 10px 5px 15px;
-    background-position: 200px 5px;
+    background-position: 200px 5px
   }
 `;
 
@@ -157,3 +149,4 @@ export const NavBar = styled.div`
     padding: 10px;
   }
 `;
+

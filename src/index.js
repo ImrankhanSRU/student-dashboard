@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 export const Theme = {
-  colo: "#497b59"
+  color: '#384b5a'
 };
 
 ReactDOM.render(

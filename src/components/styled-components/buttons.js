@@ -12,6 +12,7 @@ export const ButtonContainer = styled.div`
   text-align: center;
   cursor: pointer;
   @media (max-width: 550px) {
+    margin: 0;
     margin-top: 30px;
   }
 `;
@@ -48,9 +49,8 @@ export const Signout = styled.div`
   @media (max-width: 550px) {
     text-align: center;
     margin: 0;
-    margin-right: 20px;
     margin-top: 30px;
-    padding: 10px 15px;
+    padding: 10px 25px;
   }
 `;
 
@@ -66,3 +66,9 @@ export const Goback = styled.div`
   cursor: pointer;
   color: white;
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
