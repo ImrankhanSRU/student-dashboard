@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
   display: flex;
-  background: white;
+  background: ${props => props.theme.primary ? props.theme.primary : 'white'};
   margin-right: 20px;
+  color: ${props => props.theme.color ? props.theme.color : 'black'};
   height: 15px;
   padding: 1em;
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 1px solid ${props => props.theme.primary ? props.theme.primary : 'white'};
+  border-radius: 5px;
   margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
@@ -24,7 +25,7 @@ export const Signin = styled.div`
   outline: none;
   border: 1px solid white;
   cursor: pointer;
-  background: ${props => (props.theme.color ? props.theme.color : "#529ba5")};
+  background: ${props => props.theme.secondary ? props.theme.secondary : props.theme.background};
   color: white;
   padding: 1em 12em;
   /* margin-left: 30px; */
@@ -36,15 +37,15 @@ export const Signin = styled.div`
 `;
 
 export const Signout = styled.div`
-  padding: 1em 2em;
+  padding: .83em 2em;
   outline: none;
-  border: 1px solid white;
+  background: ${props => props.theme.secondary ? props.theme.secondary : 'white'};
+  color: white;
+  border: 1px solid ${props => props.theme.secondary ? props.theme.secondary : 'white'};
+  border-radius: 5px;
+  /* margin-bottom: 10px; */
+  font-size: 17px;
   cursor: pointer;
-  background: white;
-  color: black;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  font-size: 15px;
 
   @media (max-width: 550px) {
     text-align: center;

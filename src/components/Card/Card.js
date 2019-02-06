@@ -11,7 +11,7 @@ import {
 export default function Card(props) {
   if (!props.student.name) return <div />;
   return (
-    <NavLink className="link" to={`/${props.student.rollNo}`}>
+    <NavLink className="link student-link" to={`/${props.student.rollNo}`}>
       <Student>
         <img
           className="student-img"

@@ -120,7 +120,7 @@ class Details extends Component {
       series: [
         {
           name: "Marks",
-          color: Theme.color,
+          color: Theme.background,
           data: Object.values(this.student.marks)
         }
       ]

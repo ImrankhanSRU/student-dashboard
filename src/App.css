@@ -51,7 +51,9 @@
   margin-bottom: 20px;
 }
 
-
+.student-link {
+  margin-bottom: 50px;
+}
 
 .signout-res {
   display: none;

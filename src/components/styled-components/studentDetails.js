@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Details = styled.div`
-  background: ${props => (props.theme.color ? props.theme.color : "#529ba5")};
+  background: ${props => (props.theme.background ? props.theme.background : "#529ba5")};
   color: white;
 
   @media (max-width: 550px) {

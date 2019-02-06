@@ -25,12 +25,12 @@ export const Student = styled.div`
   flex-direction: column;
   text-align: left;
   /* width: 200px; */
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   padding: 10px 30px;
   cursor: pointer;
   text-decoration: none;
   color: black;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   @media (max-width: 1050px) {
   }
@@ -45,7 +45,7 @@ export const Student = styled.div`
 export const Loader = styled.div`
   border: 7px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 7px solid ${props => (props.theme.color ? props.theme.color : "#3498db")};
+  border-top: 7px solid ${props => (props.theme.background ? props.theme.background : "#3498db")};
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
