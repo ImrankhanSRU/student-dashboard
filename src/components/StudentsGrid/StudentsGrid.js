@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import fetchData from "../../actions/actions";
 import { Grid, Loader } from "../styled-components/studentsGrid";
 import Card from "../Card/Card";
-import hideSignout from "../Header/Header";
+// import hideSignout from "../Header/Header";
 
 class StudentsGrid extends Component {
   data;
@@ -57,7 +57,7 @@ const mapStateToProps = state => {
     searchLength: studentsLength,
     searchText: state.searchText,
     error: state.error,
-    hide: hideSignout
+    // hide: hideSignout
   };
 };
 

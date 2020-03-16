@@ -47,7 +47,7 @@ export default class SignIn extends Component {
           }}
           onClick={this.submit.bind(this)}
           className="signin link"
-          to={`/`}
+          to={`/home`}
         >
           <Signin> Signin</Signin>
         </NavLink>

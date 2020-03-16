@@ -11,11 +11,11 @@ import {
 export default function Card(props) {
   if (!props.student.name) return <div />;
   return (
-    <NavLink className="link student-link" to={`/${props.student.rollNo}`}>
+    <NavLink className="link student-link" to={`/student/${props.student.rollNo}`}>
       <Student>
         <img
           className="student-img"
-          src="https://cdn1.imggmi.com/uploads/2019/1/24/ab8f3a70d5624b382d85c34bfeabbfae-full.jpg"
+          src={require('../../assets/user-icon.jpg')}
           alt="Avatar"
         />
 

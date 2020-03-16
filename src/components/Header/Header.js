@@ -14,16 +14,16 @@ import {
 } from "../styled-components/header";
 import { NavLink } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { ButtonContainer, Signout, Buttons } from "../styled-components/buttons";
+import { ButtonContainer, Buttons } from "../styled-components/buttons";
 import { PageNotFound } from "../styled-components/studentDetails";
 
 class Header extends Component {
   render() {
-    if (this.props.error === 0) {
-      return <div />;
-    }
+    // if (this.props.error === 0) {
+    //   return <div />;
+    // }
 
-    if (this.props.error === 1) {
+    // else if (this.props.error === 1) {
       return (
         <div>
           <div
@@ -83,14 +83,14 @@ class Header extends Component {
               />
               <MaterialIcon icon="search" />
             </Search>
-            <NavLink
+            {/* <NavLink
               onClick={this.signout.bind(this)}
               className="link"
               to={'/'}
             >
               {" "}
               <Signout>Signout</Signout>
-            </NavLink>
+            </NavLink> */}
           </Head>
           <NavBar>
             <div className="menu-icon" onClick={this.display.bind(this)}>
@@ -161,37 +161,38 @@ class Header extends Component {
                 )}
               </ButtonContainer>
 
-              <div>
+              {/* <div>
                 <NavLink
                   onClick={this.signout.bind(this)}
                   className="signout signout-res link"
-                  to={''}
+                  to={'/login'}
                 >
                   {" "}
                   <Signout>Signout</Signout>
                 </NavLink>
-              </div>
+              </div> */}
               </Buttons>
             </MobileHeader>
           {/* </div> */}
         </div>
       );
-    } else if (this.props.error === 2) {
-      return (
-        <PageNotFound className="page-not-found">
-          <div>
-            <strong style={{ marginLeft: "-30px" }}>
-              Failed to fetch data from API
-            </strong>
-          </div>
-          <div>Try :</div>
-          <ul>
-            <li>Checking the network cables, modem and router</li>
-            <li>Checking the API url</li>
-          </ul>
-        </PageNotFound>
-      );
-    }
+    // } 
+    // else if (this.props.error === 2) {
+    //   return (
+    //     <PageNotFound className="page-not-found">
+    //       <div>
+    //         <strong style={{ marginLeft: "-30px" }}>
+    //           Failed to fetch data from API
+    //         </strong>
+    //       </div>
+    //       <div>Try :</div>
+    //       <ul>
+    //         <li>Checking the network cables, modem and router</li>
+    //         <li>Checking the API url</li>
+    //       </ul>
+    //     </PageNotFound>
+    //   );
+    // }
   }
 
   call = e => this.props.search(e.target.value);
@@ -210,10 +211,7 @@ class Header extends Component {
     }
   };
 
-  signout = () => {
-    let cookies = new Cookies();
-    cookies.set("username", "", { path: "/" });
-  };
+  
 }
 
 const stateToProps = state => {

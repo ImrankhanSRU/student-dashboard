@@ -10,11 +10,11 @@ const initialState = {
 let students;
 const rootReducer = (state = initialState , action) => {
 
-  let nameURLForAscend = "https://cdn1.imggmi.com/uploads/2019/1/24/7697772a5a56a9b14e8ddef7b45f2926-full.png"
-  let nameURLForDescend = "https://cdn1.imggmi.com/uploads/2019/1/24/abe9b00f0f7f0d4b33953f80a0b017e0-full.png"
+  let nameURLForAscend = require("../assets/alpha-asc.png")
+  let nameURLForDescend = require("../assets/alpha-desc.png")
   
-  let marksURLForAscend = "https://cdn1.imggmi.com/uploads/2019/1/24/96ca79b0d14adfd750b667d37630d8e4-full.png"
-  let marksURLForDescend = "https://cdn1.imggmi.com/uploads/2019/1/24/ec016e66c634f5db19f9c80638c950a7-full.png"
+  let marksURLForAscend = require("../assets/number-asc.png")
+  let marksURLForDescend = require("../assets/number-desc.png")
 
 
   let dataObj = {}

@@ -33,20 +33,21 @@ class Details extends Component {
   render() {
     const studentId = this.props.match.params.Id;
 
-    if (this.props.error === 2) {
-      return (
-        <PageNotFound className="page-not-found">
-          <div>
-            <strong>Failed to fetch data from API</strong>
-          </div>
-          <div>Try :</div>
-          <ul>
-            <li>Checking the network cables, modem and router</li>
-            <li>Checking the API url</li>
-          </ul>
-        </PageNotFound>
-      );
-    } else if (
+    // if (this.props.error === 2) {
+    //   return (
+    //     <PageNotFound className="page-not-found">
+    //       <div>
+    //         <strong>Failed to fetch data from API</strong>
+    //       </div>
+    //       <div>Try :</div>
+    //       <ul>
+    //         <li>Checking the network cables, modem and router</li>
+    //         <li>Checking the API url</li>
+    //       </ul>
+    //     </PageNotFound>
+    //   );
+    // }
+     if (
       ((studentId < 110 || studentId > 134 || isNaN(studentId)) &&
         this.props.error === 1) ||
       studentId.includes(".")
@@ -83,7 +84,7 @@ class Details extends Component {
     } else this.student = this.props.students[studentId];
     return (
       <div>
-        <NavLink to={"/"}>
+        <NavLink to={"/dashboard"}>
           <img
             className="back-icon"
             src="https://i.ibb.co/RyWpnwG/Left-Arrow-128.png"
