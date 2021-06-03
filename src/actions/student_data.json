@@ -1,0 +1,56 @@
+[
+    {
+        "rollNo": 101,
+        "name": "Arun",
+        "marks": {
+            "maths": 80,
+            "science": 90,
+            "computer": 95
+        }
+    },
+    {
+        "rollNo": 102,
+        "name": "Ajay",
+        "marks": {
+            "maths": 70,
+            "science": 85,
+            "computer": 98
+        }
+    },
+    {
+        "rollNo": 103,
+        "name": "Ajith",
+        "marks": {
+            "maths": 72,
+            "science": 89,
+            "computer": 91
+        }
+    },
+    {
+        "rollNo": 104,
+        "name": "Bala",
+        "marks": {
+            "maths": 84,
+            "science": 82,
+            "computer": 79
+        }
+    },
+    {
+        "rollNo": 105,
+        "name": "Kalai",
+        "marks": {
+            "maths": 78,
+            "science": 86,
+            "computer": 93
+        }
+    },
+    {
+        "rollNo": 106,
+        "name": "Suresh",
+        "marks": {
+            "maths": 99,
+            "science": 98,
+            "computer": 97
+        }
+    }
+]
