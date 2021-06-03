@@ -1,20 +1,22 @@
-import axios from "axios";
+// import axios from "axios";
+import data from "./student_data.json"
 
 export default function fetchData() {
-  return function(dispatch) {
-    return axios
-      .get("https://api.myjson.com/bins/1dlper")
-      .then(json => {
-        dispatch({
-          type: "DATA_LOADED",
-          payload: json.data
-        });
-      })
-      .catch(err => {
-        dispatch({
-          type: "FETCH_FAILED"
-        });
-      });
+  return function (dispatch) {
+    // return 
+    // axios
+    // .get("https://api.myjson.com/bins/1dlper")
+    // .then(json => {
+    dispatch({
+      type: "DATA_LOADED",
+      payload: data
+    });
+    // })
+    // .catch(err => {
+    //   dispatch({
+    //     type: "FETCH_FAILED"
+    //   });
+    // });
   };
 }
 
