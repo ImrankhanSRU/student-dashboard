@@ -28,19 +28,19 @@ const rootReducer = (state = initialState , action) => {
     state.studentDetails = dataObj
     for (let key in state.studentDetails) {
       if (state.studentDetails.hasOwnProperty(key))         
-          studentData[key-110] = state.studentDetails[key]
+          studentData[key] = state.studentDetails[key]
     }
   }
 
   switch (action.type) {
     case "DATA_LOADED":
-    if(action.payload[110]) {
-      state.error = 1;
-    }
+    // if(action.payload[110]) {
+    //   state.error = 1;
+    // }
 
-    else{
-      state.error = 2;
-    } 
+    // else{
+    //   state.error = 2;
+    // } 
 
     students = action.payload
 
@@ -58,7 +58,7 @@ const rootReducer = (state = initialState , action) => {
 
       for (let key in state.studentDetails) {
         if (state.studentDetails.hasOwnProperty(key))         
-            studentData[key-110] = state.studentDetails[key]
+            studentData[key] = state.studentDetails[key]
       }
 
 
@@ -82,7 +82,7 @@ const rootReducer = (state = initialState , action) => {
     case "ASCENDING_MARKS":
       for (let key in state.studentDetails) {
         if (state.studentDetails.hasOwnProperty(key))   {
-            studentData[key-110] = state.studentDetails[key]
+            studentData[key] = state.studentDetails[key]
         }
       }
 
@@ -112,7 +112,7 @@ const rootReducer = (state = initialState , action) => {
     case "SEARCH":
       for (let key in students) {
         if (students.hasOwnProperty(key))         
-            studentData[key-110] = students[key]
+            studentData[key] = students[key]
       }
 
       if(state.nameURL === nameURLForAscend) {
