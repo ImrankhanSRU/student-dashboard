@@ -24,7 +24,7 @@ class Details extends Component {
   data;
 
   async componentDidMount() {
-    if (this.props.students[110] === undefined && !this.props.students.length)
+    if (!this.props.students.length)
       await this.props.fetchData();
     if (this.count) 
         this.chart();
@@ -47,26 +47,26 @@ class Details extends Component {
     //     </PageNotFound>
     //   );
     // }
-     if (
-      ((studentId < 110 || studentId > 134 || isNaN(studentId)) &&
-        this.props.error === 1) ||
-      studentId.includes(".")
-    ) {
-      return (
-        <PageNotFound className="page-not-found">
-          <div>
-            <strong>404. Page not found</strong>
-          </div>
-          <div>That’s an error.</div>
-          <div>The requested URL was not found on this server. </div>
-          <div>That’s all we know.</div>
+    //  if (
+    //   ((studentId < 110 || studentId > 134 || isNaN(studentId)) &&
+    //     this.props.error === 1) ||
+    //   studentId.includes(".")
+    // ) {
+    //   return (
+    //     <PageNotFound className="page-not-found">
+    //       <div>
+    //         <strong>404. Page not found</strong>
+    //       </div>
+    //       <div>That’s an error.</div>
+    //       <div>The requested URL was not found on this server. </div>
+    //       <div>That’s all we know.</div>
 
-          <NavLink className="go-back link" to={"/"}>
-            Go Back
-          </NavLink>
-        </PageNotFound>
-      );
-    }
+    //       <NavLink className="go-back link" to={"/"}>
+    //         Go Back
+    //       </NavLink>
+    //     </PageNotFound>
+    //   );
+    // }
 
     if (this.props.students.length === 0) {
       return <Loader />;
